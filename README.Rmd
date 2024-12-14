@@ -30,6 +30,8 @@ pak::pak("chaseramirez/EpiGraphs")
 This is a basic example which shows you how to solve a common problem:
 Using congenital syphilis data, download from:
 https://www.who.int/data/gho/data/indicators/indicator-details/GHO/congenital-syphilis-number-of-reported-cases
+Click on the data option and follow the instructions on the right side of the screen to export the data. Do not add any filters.
+
 ```{r example}
 syphilis <- read.csv("C:/Users/crami/OneDrive/Desktop/Undergrad Class Folders/Fall 2024 B481 - Biostats Computing/Syphilis.csv")
 
