@@ -2,7 +2,6 @@
 output: github_document
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -15,14 +14,11 @@ knitr::opts_chunk$set(
 
 # EpiGraphs
 
-<!-- badges: start -->
-<!-- badges: end -->
-
-The goal of EpiGraphs is to create simpler ways for epidemiologists and statiticians to visualize and analyze data.
+The goal of EpiGraphs is to allow for epidemiologists and statisticians to graph data quick, easy, and in a professional manner.
 
 ## Installation
 
-You can install the development version of EpiGraphs from https://github.com/chaseramirez/EpiGraphs.git.
+You can install the development version of EpiGraphs from https://github.com/chaseramirez/EpiGraphs or devtools::install_github("chaseramirez/EpiGraphs")
 
 ``` r
 # install.packages("pak")
@@ -32,9 +28,16 @@ pak::pak("chaseramirez/EpiGraphs")
 ## Example
 
 This is a basic example which shows you how to solve a common problem:
-
+Using congenital syphilis data, download from:
+https://www.who.int/data/gho/data/indicators/indicator-details/GHO/congenital-syphilis-number-of-reported-cases
 ```{r example}
+syphilis <- read.csv("C:/Users/crami/OneDrive/Desktop/Undergrad Class Folders/Fall 2024 B481 - Biostats Computing/Syphilis.csv")
+
+library(dplyr)
+library(ggplot2)
+library(scales)
 library(EpiGraphs)
+
 # Example: Top 10 locations with the highest syphilis cases in 2022
 epi_bar_plot(
   data = syphilis,          # Your dataset
@@ -47,4 +50,4 @@ epi_bar_plot(
   y_desc = "Cases"          # Description for the y-axis (e.g., "cases"), synced with title
 )
 
-
+```
