@@ -30,6 +30,11 @@ epi_line_graph <- function(data, x, y, group = NULL, period_var = NULL, start_pe
     }
   }
 
+  # Check if filtered data is empty
+  if (nrow(data) == 0) {
+    stop("No data available for the specified period or location.")
+  }
+
   # Generate dynamic title
   title <- paste(
     disease_name, "- Trends in",
@@ -48,7 +53,10 @@ epi_line_graph <- function(data, x, y, group = NULL, period_var = NULL, start_pe
   # Add line chart and enhanced styling
   p <- p +
     geom_line(linewidth = 1.5) +  # Make the line thicker
-    scale_x_continuous(breaks = seq(min(data[[x]]), max(data[[x]]), by = 1)) + # Ensure every period is shown
+    scale_x_continuous(
+      breaks = seq(start_period, end_period, by = 1),  # Ensure filtered range on x-axis
+      limits = c(start_period, end_period)  # Restrict x-axis range
+    ) +
     theme_minimal() +
     theme(
       panel.background = element_rect(fill = "white", color = "grey90"), # Light grey border
