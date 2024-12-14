@@ -24,7 +24,7 @@ Epidemiologists want their graphs to capture the attention of their audience, bu
 <br>
 
 # Getting Started
-Install the package devtools::install_github("chaseramirez/Epidemiology-Graphs")
+Install the package devtools::install_github("chaseramirez/EpiGraphs")
 ```{r setup}
 library(EpiGraphs)
 ```
