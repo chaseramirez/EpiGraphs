@@ -33,7 +33,7 @@ This allows the creation of graphs that even the general public can understand w
 # Getting Started
 Install the package below and visit https://github.com/chaseramirez/EpiGraphs
 ```{r setup}
-devtools::install_github("chaseramirez/EpiGraphs")
+devtools::install_github("chaseramirez/EpiGraphs", force = TRUE)
 library(EpiGraphs)
 ```
 
