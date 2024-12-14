@@ -33,7 +33,7 @@ This allows the creation of graphs that even the general public can understand w
 # Getting Started
 Install the package below and visit https://github.com/chaseramirez/EpiGraphs
 ```{r setup}
-devtools::install_github("chaseramirez/EpiGraphs", force = TRUE)
+devtools::install_github("chaseramirez/EpiGraphs")
 library(EpiGraphs)
 ```
 
@@ -57,14 +57,14 @@ library(scales)
 
 ## 1. Bar Plot of Disease Prevalence
 ```{r}
-# Example: Top 10 locations with the highest syphilis cases in 2018
+# Example: Top 5 locations with the highest syphilis cases in 2018
 epi_bar_plot(
   data = syphilis,          # Your dataset
   x = "Location",           # Categorical variable for the x-axis
   y = "Value",              # Numeric variable for bar heights
   period_var = "Period",      # Period column (years, months, ect.)
   period = 2018,              # Filter for the year 2022
-  top_n = 5,               # Display top 10 locations
+  top_n = 5,               # Display top 5 locations
   disease_name = "Cong. Syphilis", # Disease name for the title
   y_desc = "Cases"          # Description for the y-axis (e.g., "cases"), synced with title
 )
