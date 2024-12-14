@@ -18,15 +18,15 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of EpiGraphs is to ...
+The goal of EpiGraphs is to create simpler ways for epidemiologists and statiticians to visualize and analyze data.
 
 ## Installation
 
-You can install the development version of EpiGraphs from [GitHub](https://github.com/) with:
+You can install the development version of EpiGraphs from https://github.com/chaseramirez/EpiGraphs.git.
 
 ``` r
 # install.packages("pak")
-pak::pak("chaseramirez/finalproject1")
+pak::pak("chaseramirez/EpiGraphs")
 ```
 
 ## Example
@@ -35,21 +35,16 @@ This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
 library(EpiGraphs)
-## basic example code
-```
+# Example: Top 10 locations with the highest syphilis cases in 2022
+epi_bar_plot(
+  data = syphilis,          # Your dataset
+  x = "Location",           # Categorical variable for the x-axis
+  y = "Value",              # Numeric variable for bar heights
+  period_var = "Period",      # Period column (years, months, ect.)
+  period = 2022,              # Filter for the year 2022
+  top_n = 10,               # Display top 10 locations
+  disease_name = "Cong. Syphilis", # Disease name for the title
+  y_desc = "Cases"          # Description for the y-axis (e.g., "cases"), synced with title
+)
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
 
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
