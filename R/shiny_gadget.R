@@ -4,7 +4,7 @@ server <- function(input, output, session) {
     read.csv(input$file$datapath)
   })
 
-  # Dynamically generate input controls based on plot type
+  # Generate input controls based on plot type
   output$variable_inputs <- renderUI({
     req(dataset())
     vars <- names(dataset())
