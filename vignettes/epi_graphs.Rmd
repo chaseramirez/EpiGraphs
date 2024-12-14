@@ -10,29 +10,37 @@ vignette: >
 
 # Introduction
 
-Epidemiology data often vary in format, with different data sets representing cases, deaths, prevalence, or rates of occurrence at different times and places. Users often face challenges in aligning data structures to create the visualizations that they can only see in their head and take a long time to write out. The EpiGraphs package provides flexible graphing functions, epi_bar_chart and epi_line_graph, that work effectively for a wide range of epidemiological studies. 
+Epidemiology data often vary in format, with different data sets representing cases, deaths, prevalence, or rates of occurrence at different times and places. 
+Users often face challenges in aligning data structures to create the visualizations that they can only see in their head and take a long time to write out. 
+The EpiGraphs package provides flexible graphing functions, epi_bar_chart and epi_line_graph, that work effectively for a wide range of epidemiological studies. 
+New epidemiologists that lack the coding skills to create advanced visualizations can use these functions to analyze data efficiently. These flexible functions lower the technical barrier surrounding epidemiology.
 
 
 
-Users can specify metrics (e.g., cases, deaths, reports) and generate data by time, location, or any categorical variable. These features allow users to analyze complex datasets without the need to waste time pre-processing data. For example, users can match graph titles and axis descriptions with their selected metrics and and filter for specific years, locations, or top contributors in just a few minutes.
+Users can specify metrics (e.g., cases, deaths, reports) and generate data by time, location, or any categorical variable. 
+These features allow users to analyze complex datasets without the need to waste time pre-processing data. For example, users can match graph titles and axis descriptions with their selected metrics and and filter for specific years, locations, or top contributors in just a few minutes.
 
 
 
-Epidemiologists want their graphs to capture the attention of their audience, but tools like ggplot2 require tedious work to find the theme that fits the data right. EpiGraphs has pre-configured professional themes that are clean, minimalistic, and tailored for epidemiological presentations. This allows the creation of graphs that even the general public can understand with just a quick glance. 
+Epidemiologists want their graphs to capture the attention of their audience, but tools like ggplot2 require tedious work to find the theme that fits the data right. 
+EpiGraphs has pre-configured professional themes that are clean, minimalistic, and tailored for epidemiological presentations. 
+This allows the creation of graphs that even the general public can understand with just a quick glance. 
 
 
 <br>
 
 # Getting Started
-Install the package devtools::install_github("chaseramirez/EpiGraphs")
+Install the package below and visit https://github.com/chaseramirez/EpiGraphs
 ```{r setup}
+devtools::install_github("chaseramirez/EpiGraphs")
 library(EpiGraphs)
 ```
 
 <br>
 
 # Example Dataset
-We will use the "syphilis" dataset, from the World Health Organization (WHO), which contains data of Congenital syphilis cases around the world. Found on: https://www.who.int/data/gho/data/indicators/indicator-details/GHO/congenital-syphilis-number-of-reported-cases
+We will use the "syphilis" dataset, from the World Health Organization (WHO), which contains data of Congenital syphilis cases around the world. 
+Found on: https://www.who.int/data/gho/data/indicators/indicator-details/GHO/congenital-syphilis-number-of-reported-cases
 ```{r}
 syphilis <- read.csv("C:/Users/crami/OneDrive/Desktop/Undergrad Class Folders/Fall 2024 B481 - Biostats Computing/Syphilis.csv")
 library(dplyr)
@@ -48,13 +56,13 @@ library(scales)
 
 ## 1. Bar Plot of Disease Prevalence
 ```{r}
-# Example: Top 10 locations with the highest syphilis cases in 2022
+# Example: Top 10 locations with the highest syphilis cases in 2019
 epi_bar_plot(
   data = syphilis,          # Your dataset
   x = "Location",           # Categorical variable for the x-axis
   y = "Value",              # Numeric variable for bar heights
   period_var = "Period",      # Period column (years, months, ect.)
-  period = 2022,              # Filter for the year 2022
+  period = 2019,              # Filter for the year 2022
   top_n = 10,               # Display top 10 locations
   disease_name = "Cong. Syphilis", # Disease name for the title
   y_desc = "Cases"          # Description for the y-axis (e.g., "cases"), synced with title
@@ -86,4 +94,8 @@ epi_line_graph(
 <br>
 
 # Future Work and Plans
-Epidemiological data often requires more advanced visualizations to effectively analyze trends and patterns, so creating heat maps, stacked bar charts, and scatter plots with regression lines are future projects that can work well with a variety of data. It would also be very helpful to add animated maps to easily identify trends in data, which is why I think utilizing gganimate and pre-configuring its themes to make it appear professional and easily understandable would benefit epidemiologists and statisticians using EpiGraphs. A more advanced idea could be building in access to publicly available data and integrate with APIs like the WHO, CDC, and World Bank. Since a large majority of the R community uses the program specifically for statistics and finding the best models, I could expand the package to add and visualize summary statistics (mean, median, ect.) as well. There's a lot of options, but ideally, EpiGraphs continues to empower users with powerful user-friendly tools that make graphing their data easier. 
+Epidemiological data often requires more advanced visualizations to effectively analyze trends and patterns, so creating heat maps, stacked bar charts, and scatter plots with regression lines are future projects that can work well with a variety of data. 
+It would also be very helpful to add animated maps to easily identify trends in data, which is why I think utilizing gganimate and pre-configuring its themes to make it appear professional and easily understandable would benefit epidemiologists and statisticians using EpiGraphs. 
+A more advanced idea could be building in access to publicly available data and integrate with APIs like the WHO, CDC, and World Bank. 
+Since a large majority of the R community uses the program specifically for statistics and finding the best models, I could expand the package to add and visualize summary statistics (mean, median, ect.) as well. 
+There's a lot of options, but ideally, EpiGraphs continues to empower users with powerful user-friendly tools that make graphing their data easier. 
